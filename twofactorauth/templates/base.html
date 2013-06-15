@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>{{ config.SITE_TITLE }} - {% block title %}{% endblock %}</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <link rel="author" href="/humans.txt" />
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='foundation/css/foundation.css') }}" />
+        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+        {% block head_css %}
+        {% endblock %}
+
+        <script src="{{ url_for('static', filename='js/modernizr.js') }}"></script>
+        {% block head_js %}
+        {% endblock %}
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+        {% block body %}
+        <div id="wrapper">
+            {% block wrapper %}
+            {% endblock %}
+        </div>
+        {% endblock %}
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+        <script>window.jQuery || document.write("<script src=\"{{ url_for('static', filename='js/jquery.js') }}\"><\/script>")</script>
+
+        <script src="{{ url_for('static', filename='js/plugins.js') }}"></script>
+
+        <script type="text/javascript">
+            document.write('<script src=' +
+            ('__proto__' in {} ? 'static/foundation/js/vendor/zepto' : 'static/foundation/js/vendor/jquery') +
+            '.js><\/script>')
+        </script>
+        
+        <script type="text/javascript" src="{{ url_for('static', filename='foundation/js/foundation.min.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='foundation/js/foundation/foundation.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='foundation/js/foundation/foundation.interchange.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='foundation/js/foundation/foundation.dropdown.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='foundation/js/foundation/foundation.placeholder.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='foundation/js/foundation/foundation.forms.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='foundation/js/foundation/foundation.alerts.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='foundation/js/foundation/foundation.magellan.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='foundation/js/foundation/foundation.reveal.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='foundation/js/foundation/foundation.tooltips.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='foundation/js/foundation/foundation.clearing.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='foundation/js/foundation/foundation.cookie.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='foundation/js/foundation/foundation.joyride.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='foundation/js/foundation/foundation.orbit.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='foundation/js/foundation/foundation.section.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='foundation/js/foundation/foundation.topbar.js') }}"></script>
+
+            <script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
+        
+        {% block tail_js %}
+        {% endblock %}
+
+        <script>
+            var _gaq=[['_setAccount','{{ config.GA_CODE }}'],['_trackPageview']];
+            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)}(document,'script'));
+        </script>
+    </body>
+</html>

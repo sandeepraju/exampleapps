@@ -1,0 +1,21 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Plivo Inc.
+    http://plivo.com
+
+
+# TECHNOLOGY COLOPHON
+
+    Python, Flask
+    HTML5, CSS3
+    jQuery, Modernizr
+    Foundation Zurb
+
+
+# SITE
+    Last Update: 12/06/2013
+    Standards: HTML5, CSS3
+    Software: Sublime Text 2, ViM, Linux

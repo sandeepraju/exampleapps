@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block wrapper %}
+<header>
+	<img class="site-logo" src="{{ url_for('static', filename='img/logo.png') }}">
+</header>
+<div class="content">
+	<div class="buddy-data">
+		<h5 style="text-align:center;">You can start chatting by sending an SMS to</h5>
+		<h3 style="text-align:center;color:#2ba6cb;">{{respData.number}}</h3>
+		<table>
+		  <thead>
+		    <tr>
+		      <th width="200">Name</th>
+		      <th width="200">Phone Number</th>
+		      <th width="150">Verified</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		  	{% for buddy in respData.buddyList %}
+		    <tr uid="{{buddy.uid}}">
+		      <td>{{buddy.user}}</td>
+		      <td>{{buddy.num}}</td>
+		      <td><span id="uid{{buddy.uid}}" class="{{'alert' if buddy.verified == '0' else 'success'}} label">{{'No' if buddy.verified == '0' else 'Yes'}}</span></td>
+		    </tr>
+		    {% endfor %}
+		  </tbody>
+		</table>
+        <a style="display:block;text-align:center;" href="/">&lsaquo; Back</a>
+	</div>
+</div>
+<footer>
+	<p class="footer-copyright"> © Copyright 2013 | <a href="http://plivo.com">Plivo Inc.</a> </p>
+</footer>
+{% endblock %}
+
+{% block tail_js %}
+<script type="text/javascript">
+$("document").ready(function() {
+	/////////////////////////////
+	// verification handler    //
+	/////////////////////////////
+	function verify() {
+		$.ajax({
+			"url": "/verification",
+			"type": "GET",
+			"success": function(data) {
+				if(data["status"]  == "success") {
+					$.each(data["buddyList"], function(index, user){
+						// update the label & Yes / No value
+						if(user["verified"]) {
+							console.log("true");
+							$("#uid" + user["uid"]).removeClass("alert");
+							$("#uid" + user["uid"]).addClass("success");
+							$("#uid" + user["uid"]).html("Yes!");
+						}
+					});
+
+					// after 1 sec, call verify again
+					setTimeout(function() {
+						verify();
+					}, 1000);
+				}
+			},
+			"error": function() {
+				// error
+			}
+		});
+	}
+
+	// start checking if the user verfied or not
+	verify();
+});
+</script>
+{% endblock %}

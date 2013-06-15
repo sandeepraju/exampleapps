@@ -1,0 +1,16 @@
+# settings.py contains all the global settings / configurations
+# for the application.
+
+# Title of the site
+SITE_TITLE = "Plivo Buddy"
+
+# Mode
+DEBUG = True
+
+# Redis Configuration
+APPLICATION_REDIS_URI = "redis://<host>:<port>"
+
+# Plivo Configuration
+PLIVO_AUTH_ID = ""
+PLIVO_AUTH_TOKEN = ""
+PLIVO_APP_ID = ""

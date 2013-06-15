@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block wrapper %}
+<header>
+	<img class="site-logo" src="{{ url_for('static', filename='img/logo.png') }}">
+</header>
+<div class="content">
+	<form class="number-form" action="/start" method="post">
+		<h5 style="text-align:center;">Enter phone numbers and start SMS chatting!</h5>
+		<div class="row">
+			<div class="large-6 columns">
+			<input type="text" name="user1" placeholder="Your Name">
+			</div>
+			<div class="large-6 columns">
+			<input type="text" name="pnum1" placeholder="Your Phone Number">
+			</div>
+        </div>
+        <div class="row">
+			<div class="large-6 columns">
+			<input type="text" name="user2" placeholder="Friend's Name">
+			</div>
+			<div class="large-6 columns">
+			<input type="text" name="pnum2" placeholder="Friend's Phone Number">
+			</div>
+        </div>
+        <div class="row">
+			<div class="large-6 columns">
+			<input type="text" name="user3" placeholder="Friend's Name">
+			</div>
+			<div class="large-6 columns">
+			<input type="text" name="pnum3" placeholder="Friend's Phone Number">
+			</div>
+        </div>
+        <div class="row">
+			<div class="large-6 columns">
+			<input type="text" name="user4" placeholder="Friend's Name">
+			</div>
+			<div class="large-6 columns">
+			<input type="text" name="pnum4" placeholder="Friend's Phone Number">
+			</div>
+        </div>
+        <div class="row">
+			<div class="large-6 columns">
+			<input type="text" name="user5" placeholder="Friend's Name">
+			</div>
+			<div class="large-6 columns">
+			<input type="text" name="pnum5" placeholder="Friend's Phone Number">
+			</div>
+        </div>
+        <div class="row">
+			<div class="large-12 columns">
+			<input class="small button expand number-form-submit" type="Submit" value="Start!" />
+			</div>
+        </div>
+	</form>
+</div>
+<footer>
+	<p class="footer-copyright"> © Copyright 2013 | <a href="http://plivo.com">Plivo Inc.</a> </p>
+</footer>
+{% endblock %}
+
+{% block tail_js %}
+<script type="text/javascript">
+$("document").ready(function() {
+	/////////////////////////////
+	// Register event handlers //
+	/////////////////////////////
+	$(".number-form-submit").click(function() {
+		// validate forms here
+	});
+});
+</script>
+{% endblock %}

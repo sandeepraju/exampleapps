@@ -1,0 +1,11 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+*.txt text
+*.py text
+*.ini text
+*.py.sample text
+*.html text
+*.css text
+*.js text
+*.sh text

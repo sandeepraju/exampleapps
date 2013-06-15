@@ -1,0 +1,8 @@
+*.py[co]
+*~
+venv/
+tmp/
+# core/settings.py
+core/build
+core/static/.webassets-cache/
+core/static/assets/

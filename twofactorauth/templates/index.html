@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block wrapper %}
+<header>
+	<img class="site-logo" src="{{ url_for('static', filename='img/logo.png') }}">
+</header>
+<div class="content">
+	<form class="number-form" action="/start" method="post">
+		<h5 style="text-align:center;">Enter your phone number to verify!</h5>
+		<div class="row phone-row">
+			<div class="large-6 columns">
+				<input type="text" class="phone-number" placeholder="Your Phone Number">
+			</div>
+			<div class="large-6 columns">
+				<input class="small button expand phone-number-verify-button" type="button" value="Send Verification Code" />
+			</div>
+        </div>
+        <div class="row code-row"  style="display:none;">
+			<div class="large-6 columns">
+				<input type="text" class="verification-code" placeholder="Enter the code from SMS">
+			</div>
+			<div class="large-6 columns">
+				<input class="small button expand verification-code-check-button" type="button" value="Check" />
+			</div>
+        </div>
+        <div class="row result-row" style="display:none;">
+        	<h2 class="verification-status"></h2>
+        </div>
+	</form>
+</div>
+<footer>
+	<p class="footer-copyright"> © Copyright 2013 | <a href="http://plivo.com">Plivo Inc.</a> </p>
+</footer>
+{% endblock %}
