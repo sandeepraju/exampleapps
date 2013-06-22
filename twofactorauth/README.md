@@ -11,10 +11,6 @@ The next section explains how the application works and in-turn how Plivo as a p
 
 [Here is a live demo](http://shielded-hollows-9845.herokuapp.com/) of this sample application where you can try out how it works. This application verifies your phone number using the two factor authentication system. In the application, enter your phone number in [E.164](http://en.wikipedia.org/wiki/E.164) format (currently works for US numbers) and click on 'Send Verification Code'. This sends an SMS to that number with a random security code in it. The application now shows a text box to enter this code to verify your mobile number. Once you get the code in the SMS, enter the code in the text box and click 'Check'. This will tell you whether the code you entered is correct or not. If you enter the correct code, then the application knows that the phone number belongs to you and thus the number is verified.
 
-## How it works
-
-To understand how this application works, we need to look into how the 'Plivo Message' feature works. Lets assume you have a web server which requires to send & receive SMS. Here is the step by step procedure you need to follow ... _blah blah blah..._
-
 ## Deployment on Heroku
 
 ### Initial Setup
